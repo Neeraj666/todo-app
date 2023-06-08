@@ -1,0 +1,83 @@
+*,::before,::after{margin: 0; padding: 0; box-sizing: border-box; }
+a{ text-decoration: none;}
+img{ vertical-align: bottom;}
+label{ display: inline-block;}
+
+body{
+    font-family: 'Source Sans Pro', sans-serif; background: #f3f2ef;
+}
+
+.container{ 
+    max-width: 1200px; 
+    margin: auto;
+    padding: 0px 15px;
+    /* border: none; */
+    /* border: 1px solid black; */
+}
+
+.row{
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0 -15px;
+    /* border: 1px solid red; */
+}
+
+.row [class^='col']{flex: 1 0 auto; padding: 0 15px;}
+
+.row .col-1{flex-basis: 8.33%; max-width: 8.33%;}
+.row .col-2{flex-basis: 16.66%; max-width: 16.66%;}
+.row .col-3{flex-basis: 25%; max-width: 25%;}
+.row .col-4{flex-basis: 33.33%; max-width: 33.33%;}
+.row .col-5{flex-basis: 41.66%; max-width: 41.66%;}
+.row .col-6{flex-basis: 50%; max-width: 50%;}
+.row .col-7{flex-basis: 58.33%; max-width: 58.33%;}
+.row .col-8{flex-basis: 66.66%; max-width: 66.66%;}
+.row .col-9{flex-basis: 75%; max-width: 75%;}
+.row .col-10{flex-basis: 83.33%; max-width: 83.33%;}
+.row .col-11{flex-basis: 91.11%; max-width: 91.11%;}
+.row .col-12{flex-basis: 100%; max-width: 100%;}
+
+
+/* Wrap-1 */
+/* .wrap-1 .col-12{ display: flex; justify-content: space-between;}
+.wrap-1 h1{ margin-top: 2rem; line-height: 4rem;}
+.wrap-1 span{ font-size: 2.5rem; margin-top: 2rem; line-height: 4rem;}
+
+
+.wrap-1 ul{ list-style: none; margin-top: 3rem;}
+.wrap-1 .circle, .circle1, .circle2, .circle3{ display: inline-block; width: 1.5rem;  height: 1.5rem; background: rgb(185, 110, 254); border-radius: 50%; }
+.wrap-1 .col-3 a{ font-size: 1.1rem; margin-left: 1rem; vertical-align: super;}
+.wrap-1 .circle1{ background: rgb(135, 135, 244);}
+.wrap-1 .circle2{ background: rgb(255, 124, 124);}
+.wrap-1 .circle3{ background: rgb(125, 239, 125);}
+.wrap-1 .checkbox{ display: flex; margin-top: 2rem; }
+.wrap-1 .checkbox input{ width: 1rem; height: 1rem; margin-right: 10px; margin-bottom: 5rem;}
+
+.wrap-1 .box{ background: rgb(254, 228, 219); padding: 1rem; margin-top: 4.2rem; border-radius: 5px;} 
+.wrap-1 .task{ display: flex; justify-content: space-between;}
+.wrap-1 .task p{ font-size: 2rem; margin-top: -15px; }
+.wrap-1 .box .para{ font-size: 15px; margin-top: 21px;}
+.wrap-1 .indicator{ display: flex; justify-content: space-between;}
+.wrap-1 .box .circle2,.box .circle{ margin-left: 1rem;}
+
+
+
+@media screen  and (max-width: 1200px){
+    body{ background: red;}
+}
+
+@media screen  and (max-width: 1100px){
+    body{ background: green;}
+}
+@media screen  and (max-width: 1000px){
+    body{ background: orange;}
+}
+@media screen  and (max-width: 900px){
+    body{ background: rgb(111, 0, 255);}
+}
+@media screen  and (max-width: 700px){
+    body{ background: rgb(255, 0, 140);}
+}
+@media screen  and (max-width: 400px){
+    body{ background: rgb(0, 255, 21);}
+} */
