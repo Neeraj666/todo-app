@@ -3,8 +3,8 @@ import './Section.css';
 import { Fragment, useEffect, useState } from 'react';
 import TodoBox from './TodoBox';
 
-const Section = ({todos, editID, setEditID}) => {
-    console.log(todos)
+const Section = ({ todos, editID, setEditID, /* toggleMod, mod, setMod */setTodos, handleDelete }) => {
+    console.log(todos, 'todos')
 
     return (
         <>
@@ -12,34 +12,38 @@ const Section = ({todos, editID, setEditID}) => {
                 <div className='container'>
                     <div className='row'>
 
-                        <div className='col-3'>
+                        <div className='col-3 col-lm-12'>
                             <ul className='ul'>
-                                <li><span className='circle'></span><a href="">work</a></li>
-                                <li><span className='circle1'></span><a href="">study</a></li>
-                                <li><span className='circle2'></span><a href="">entertainment</a></li>
-                                <li><span className='circle3'></span><a href="">family</a></li>
+                                <li><span className='circle com1'></span><a href="">work</a></li>
+                                <li><span className='circle1 com2'></span><a href="">study</a></li>
+                                <li><span className='circle2 com3'></span><a href="">entertainment</a></li>
+                                <li><span className='circle3 com4'></span><a href="">family</a></li>
                             </ul>
                             <div className='hide'>
                                 <input type='checkbox' value='' /><p>Hide the done task</p>
                             </div>
                         </div>
 
-                        <div className='col-9'>
+                        <div className='col-9 col-lm-12'>
                             <div className='row'>
 
                                 {
                                     todos.map((data, index) => <Fragment key={index}>
-                                        <div className='col-6'>
-                                            <TodoBox todobody={data.todolist} todotitle={data.title} editID={editID} setEditID={setEditID} id={index}/>
+                                        <div className='col-6 col-lm-12'>
+                                            <TodoBox currentKey={index}
+                                                todobody={data.todolist}
+                                                todotitle={data.title}
+                                                editID={editID}
+                                                setEditID={setEditID}
+                                                id={index} /* toggleMod={toggleMod} mod={mod} setMod={setMod}  */
+                                                todos={todos}
+                                                setTodos={setTodos}
+                                                handleDelete={handleDelete} />
                                         </div>
 
                                     </Fragment>)
                                 }
 
-                                {/*                                 
-                                <div className='col-6'>
-                                <TodoBox todobody={"Test"} todotitle={"asdfsa iosaohfasj jb sdf hamf sga sajhdfg askgdfkj"}/>
-                                </div> */}
 
                             </div>
                         </div>

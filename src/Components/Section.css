@@ -14,7 +14,7 @@
 .wrap-2 .hide input{ width: 1rem; height: 1rem; margin-right: 10px; margin-bottom: 5rem; cursor: pointer;}
 
 
-.wrap-2 .box{ background: rgb(254, 228, 219); padding: 1rem; margin-top: 2rem; border-radius: 5px; position: relative;} 
+.wrap-2 .box{ background: rgb(254, 228, 219); padding: 1rem; margin-top: 2rem; border-radius: 10px; position: relative;} 
 .wrap-2 .task{ display: flex; justify-content: space-between;}
 .wrap-2 .task p{ font-size: 2rem; margin-top: -15px; cursor: pointer;}
 .wrap-2 .box .para{ font-size: 15px; margin-top: 21px;}
@@ -27,7 +27,6 @@
 .wrap-2 .box .indicator .done{ margin-left: 0.5rem; margin-top: -2px; vertical-align: text-bottom;}
 
 /* modal */
-
 .mod-content {
     position: absolute;
     top: 22%;
@@ -35,7 +34,6 @@
     width: 10rem;
     border-radius: 0.8rem;
     background: #fff;
-    /* border: 1px solid red; */
 }
 
 .mod-content ul{ list-style: none; padding: 0; }
@@ -51,3 +49,65 @@
     right: 0;
     bottom: 0;
 } */
+
+
+/* ---------------------------  Media Query -------------------------- */
+@media screen  and (max-width: 980px){
+    .wrap-2 .task h2{ font-size: 1.4rem;}
+    .wrap-2 .task p{ font-size: 1.8rem; }
+    .wrap-2 .box .indicator .check{ width: 12px; height: 12px;}
+    .wrap-2 .box .indicator .done{ font-size: 16px;}
+
+    .mod-content { width: 8rem; }
+    .mod-content ul li a{ font-size: 14px;}
+}
+
+@media screen and (max-width: 767px) {
+    .row .col-lm-12{flex-basis: 100%; max-width: 100%;}
+    .wrap-2 .ul{display: flex;}
+    .wrap-2 .hide{ display: none; }
+    .wrap-2 .ul li{  width: 11rem;   margin-left: 13px;}
+
+    .wrap-2 .task h2{ font-size: 1.5rem;}
+    .wrap-2 .task p{ font-size: 2rem; }
+    .wrap-2 .box .indicator .check{ width: 15px; height: 15px;}
+    .wrap-2 .box .indicator .done{ font-size: 1.1rem;}
+
+    .mod-content { width: 10rem; }
+    .mod-content ul li a{ font-size: 16px;}
+}
+
+@media screen and (max-width: 596px){
+    
+    .wrap-2 .ul li{ margin-left: 5px; padding-left: 6px;}
+    .wrap-2 .col-3 a{ margin-left: 5px;}
+    .wrap-2 .box{ margin-top: 0rem; margin-bottom: 1rem; }
+}
+
+@media screen and (max-width: 460px){
+    .wrap-2 .com1, .com2, .com3, .com4{  width: 1rem;  height: 1rem; }
+    .wrap-2 .ul {justify-self: center;}
+    .wrap-2 .ul li{ padding: 3px; margin-left: 0;}
+    .wrap-2 .ul li:nth-child(3){ margin-right: 3%;}
+    .wrap-2 .col-3 a{ font-size: 14px; margin-left: 2px;}
+    .wrap-2 .box .indicator .done{ margin-left: 0.5rem; margin-top: -2px; vertical-align: text-bottom;}
+
+    .wrap-2 .task h2{ font-size: 1.2rem;}
+    .wrap-2 .task p{ font-size: 1.6rem; }
+
+
+    .wrap-2 .section{margin-bottom: -10px;}
+    .wrap-2 .section .circle, .circle1, .circle2, .circle3{ width: 1rem;  height: 1rem; }
+    .wrap-2 .box .indicator .check{ width: 12px; height: 12px; vertical-align: top;}
+    .wrap-2 .box .indicator .done{ font-size: 0.9rem; display: inline-block; vertical-align: super; margin-top: -1.5px;}
+
+    .mod-content { width: 8rem; }
+    .mod-content ul li a{ font-size: 14px;}
+    .mod-content ul li{ padding: 14px; }
+}
+
+@media screen and (max-width: 330px){
+    .wrap-2 .ul li:nth-child(3){ margin-right: 0%;}
+}
+
+
