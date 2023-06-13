@@ -3,8 +3,8 @@ import './Section.css';
 import { Fragment, useEffect, useState } from 'react';
 import TodoBox from './TodoBox';
 
-const Section = ({ todos, editID, setEditID, /* toggleMod, mod, setMod */setTodos, handleDelete }) => {
-    console.log(todos, 'todos')
+const Section = ({ todos, editID, setEditID, setTodos, handleDelete }) => {
+    // console.log(todos, 'todos');
 
     return (
         <>
@@ -35,10 +35,11 @@ const Section = ({ todos, editID, setEditID, /* toggleMod, mod, setMod */setTodo
                                                 todotitle={data.title}
                                                 editID={editID}
                                                 setEditID={setEditID}
-                                                id={index} /* toggleMod={toggleMod} mod={mod} setMod={setMod}  */
+                                                id={index} 
                                                 todos={todos}
                                                 setTodos={setTodos}
-                                                handleDelete={handleDelete} />
+                                                handleDelete={handleDelete}
+                                            />
                                         </div>
 
                                     </Fragment>)

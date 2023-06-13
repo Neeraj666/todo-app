@@ -17,7 +17,6 @@ const App = () => {
 //---------------------- Box toggleModal -----------------------
     const toggleModal = (prop) => {
         console.clear()
-        console.log(todos,"=alll todos==", prop)
         setModal(!modal)
 
         if(prop==="open"){
@@ -38,13 +37,6 @@ const App = () => {
     // console.log(editID, " current todos")
 
 
-//--------------------- Delete -------------------------------
-    const handleDelete = (delId) => {
-        const updatedTodos = todos.filter((todo) => todo.id !== delId);
-        setTodos(updatedTodos);
-      };
-
-
 //--------------------------- Edit -----------------------------
     const hanldeEdit=()=>{
         
@@ -63,16 +55,39 @@ const App = () => {
         setEditID(-1);               //for reset map to -1
         setModal(!modal);            //for close the current modal(box)
     }
-
-
-
+    
+//--------------------- Delete -------------------------------
+const handleDelete = (id) => {
+    setTodos((p)=>{
+        const updatedTodos = p.filter((todo, index)=> index !== id);
+        console.log(id, 'iiiiid');
+        return updatedTodos;
+    });
+};
 
 
     return (
         <>
-            <Nav data={data} hanldeEdit={hanldeEdit} setData={setData} setTodos={setTodos} editID={editID} setEditID={setEditID} currentTodo={todos[editID]} modal={modal} setModal={setModal} toggleModal={toggleModal} />
+            <Nav
+             data={data}
+             hanldeEdit={hanldeEdit}
+             setData={setData}
+             setTodos={setTodos} 
+             editID={editID}
+             setEditID={setEditID}
+             currentTodo={todos[editID]} 
+             modal={modal}
+             setModal={setModal}
+             toggleModal={toggleModal}
+             />
 
-            <Section todos={todos} editID={editID} setEditID={toggleModal}   /*  toggleMod={toggleMod} mod={mod} setMod={setMod} */ setTodos={setTodos} handleDelete={handleDelete}/>
+            <Section 
+            todos={todos} 
+            editID={editID} 
+            setEditID={toggleModal}
+            setTodos={setTodos} 
+            handleDelete={handleDelete}
+            />
         </>
     );
 }
