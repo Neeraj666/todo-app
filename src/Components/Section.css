@@ -55,6 +55,7 @@
 /* for Creating a line-though click of done checkbox */
 .completed {
     text-decoration: line-through;
+    font-weight: bolder;
 }
 
 
@@ -62,7 +63,7 @@
 @media screen  and (max-width: 980px){
     .wrap-2 .task h2{ font-size: 1.4rem;}
     .wrap-2 .task p{ font-size: 1.8rem; }
-    /* .wrap-2 .box .indicator .check{ width: 12px; height: 12px;} */
+    .wrap-2 .box .indicator .check{ width: 12px; height: 12px;}
     .wrap-2 .box .indicator .done{ font-size: 16px;}
 
     .mod-content { width: 8rem; }

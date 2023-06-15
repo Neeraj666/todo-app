@@ -5,6 +5,13 @@ import TodoBox from './TodoBox';
 
 const Section = ({ todos, editID, setEditID, setTodos, handleDelete }) => {
     // console.log(todos, 'todos');
+    const [hideCompleted, setHideCompleted] = useState(false);
+
+    const handleCheckboxChange = () => {
+        setHideCompleted(prevCompleted => !prevCompleted);
+    };
+
+    // console.log(hideCompleted,'hide----------------------');
 
     return (
         <>
@@ -20,7 +27,7 @@ const Section = ({ todos, editID, setEditID, setTodos, handleDelete }) => {
                                 <li><span className='circle3 com4'></span><a href="">family</a></li>
                             </ul>
                             <div className='hide'>
-                                <input type='checkbox' value='' /><p>Hide the done task</p>
+                                <input type='checkbox' value='' checked={hideCompleted} onChange={handleCheckboxChange} /><p>Show the done task</p>
                             </div>
                         </div>
 
@@ -28,23 +35,30 @@ const Section = ({ todos, editID, setEditID, setTodos, handleDelete }) => {
                             <div className='row'>
 
                                 {
-                                    todos.map((data, index) => <Fragment key={index}>
-                                        <div className='col-6 col-lm-12'>
-                                            <TodoBox currentKey={index}
-                                                todobody={data.todolist}
-                                                todotitle={data.title}
-                                                editID={editID}
-                                                setEditID={setEditID}
-                                                id={index} 
-                                                todos={todos}
-                                                setTodos={setTodos}
-                                                handleDelete={handleDelete}
-                                            />
-                                        </div>
+                                    todos.map((data, index) => (
+                                        <Fragment key={index}>
+                                            {hideCompleted && !data.completed ? <></> :
 
-                                    </Fragment>)
+                                                <div className='col-6 col-lm-12' >
+                                                    <TodoBox
+                                                        currentKey={index}
+                                                        todobody={data.todolist}s
+                                                        todotitle={data.title}
+                                                        editID={editID}
+                                                        setEditID={setEditID}
+                                                        id={index}
+                                                        todos={todos}
+                                                        setTodos={setTodos}
+                                                        handleDelete={handleDelete}
+                                                        hideCompleted={hideCompleted}
+                                                        setHideCompleted={setHideCompleted}
+                                                    />
+                                                </div>
+
+                                            }
+                                        </Fragment>
+                                    ))
                                 }
-
 
                             </div>
                         </div>

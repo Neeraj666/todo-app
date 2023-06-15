@@ -2,7 +2,6 @@
 .wrap-1 h1{ font-size: 2.2rem;}
 .wrap-1 span{ font-size: 2.5rem; cursor: pointer;}
 
-
 body.active-modal {    
     overflow-y: hidden;
 }

@@ -10,7 +10,7 @@ function TodoBox({ todobody, currentKey, todotitle, editID, setEditID, id,todos,
         setMod(mod=>!mod);
     }
 
-    // console.log(id, 'dlksjjfklds');
+    // console.log(completed, 'comp');
    
 
     const handleClick = () => {
@@ -18,17 +18,30 @@ function TodoBox({ todobody, currentKey, todotitle, editID, setEditID, id,todos,
         setMod(!mod);
     };
 
-    const handleCheck=()=>{
-        const currentIsDone = [...todos];
-        currentIsDone[id] = {
-            ...currentIsDone[id], isDone : !currentIsDone[id].isDone,
-        }
-        setTodos(currentIsDone);
-    }
-
     const handleCheckboxChange = () => {
-        setCompleted(!completed);
-    };
+        setCompleted((prevCompleted) => !prevCompleted);
+        setTodos((prevTodos) => {
+          return prevTodos.map((todo, index) => {
+            if (index === id) {
+              return {
+                ...todo,
+                completed: !todo.completed,
+              };
+            }
+            return todo;
+          });
+        });
+      };
+    
+
+    // const handleCheck=()=>{
+    //     const currentIsDone = [...todos];
+    //     currentIsDone[id] = {
+    //         ...currentIsDone[id], isDone : !currentIsDone[id].isDone,
+    //     }
+    //     setTodos(currentIsDone);
+    // }
+
 
    
     return (
