@@ -1,72 +1,41 @@
 import React, { useState } from 'react'
 import './Section.css';
 
-function TodoBox({ todobody, currentKey, todotitle, editID, setEditID, id,todos, setTodos,handleDelete}) {
+function TodoBox({ todobody, todotitle, editID, setEditID, id }) {          
+    const[mod, setMod]=useState(false);
 
-    const [mod, setMod] = useState(false);
-    const [completed, setCompleted] = useState(false);
-
-    const toggleMod = () => {
-        setMod(mod=>!mod);
+    const toggleMod=()=>{
+        setMod(!mod);
     }
 
-    // console.log(completed, 'comp');
-   
-
-    const handleClick = () => {
-        setEditID(id);
+    const handleClick=()=>{
+        setEditID(id)
         setMod(!mod);
-    };
+    }
 
-    const handleCheckboxChange = () => {
-        setCompleted((prevCompleted) => !prevCompleted);
-        setTodos((prevTodos) => {
-          return prevTodos.map((todo, index) => {
-            if (index === id) {
-              return {
-                ...todo,
-                completed: !todo.completed,
-              };
-            }
-            return todo;
-          });
-        });
-      };
-    
-
-    // const handleCheck=()=>{
-    //     const currentIsDone = [...todos];
-    //     currentIsDone[id] = {
-    //         ...currentIsDone[id], isDone : !currentIsDone[id].isDone,
-    //     }
-    //     setTodos(currentIsDone);
-    // }
-
-
-   
     return (
         <>
             <div className='box'>
                 <div className='task'>
-                    <h2 className={`${completed ? 'completed': ''}`}>{todotitle}</h2>
+                    <h2>{todotitle}</h2>
                     <p onClick={toggleMod}><a>...</a></p>
 
-                    {
+                    { 
                         mod &&
                         (
                             <div className='mod' onClick={toggleMod}>
-                            <div className='mod-content'>
-                                <ul>
-                                    <li onClick={()=>handleClick()}><a href='#'>Edit ...</a></li>
-                                    <li onClick={()=>handleDelete(id)}><a href='#'>Delete</a></li>
-                                </ul>
-                            </div>
+                                <div className='mod-content'>
+                                        <ul>
+                                            <li onClick={handleClick}><a href='#'>Edit ...</a></li>
+                                            <li onClick={toggleMod}><a href='#'>Delete</a></li>
+                                        </ul>
+                                </div>
                             </div>
                         )
-                    }
-
+                    } 
+                    
                 </div>
-                <p className={`para ${completed ? 'completed' : ''}`}>
+                <p className='para'>
                     {todobody}
                 </p>
                 <div className='section'>
@@ -76,7 +45,7 @@ function TodoBox({ todobody, currentKey, todotitle, editID, setEditID, id,todos,
                         <span className='circle'></span>
                     </p>
                     <div className='indicator'>
-                        <input className='check' type='checkbox' checked={completed} onChange={handleCheckboxChange} />
+                        <input className='check' type='checkbox' value='' />
                         <span className='done'>Done</span>
                     </div>
                 </div>
