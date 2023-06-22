@@ -3,48 +3,36 @@ import './Nav.css';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTodo } from '../Action';
-import { editTodo } from '../Action';
 
-
-// import { addTodo, editTodo } from '../Action';
-
-const Nav = () => {
+const Nav = ({editID, setEditID, hanldeEdit}) => {
     const [modal, setModal] = useState(false);
     const [data, setData] = useState({ title: '', todolist: '' });
-    const [editID, setEditID] = useState(-1);   //edit
 
-    const toggleModal = () => {       //modal (open close)
-        setModal(!modal);
+    const toggleModal = () => {   //modal
+        setModal(!modal)
     }
 
-    if (modal) {                      //modal (open, close)
+    if (modal) {                 //modal
         document.body.classList.add('active-modal')
     } else {
         document.body.classList.remove('active-modal')
     }
 
-    const dispatch = useDispatch();    //redux
+    const dispatch = useDispatch();
 
-    const hanldeAdd = () => {
+    const hanldeAdd = () => {     //add funtion
         const newTodo = {
             title: data.title,
             todolist: data.todolist,
           };
 
-        // dispatch(addTodo(newTodo));
+        dispatch(addTodo(newTodo));
 
-        if (editID === -1) {
-            dispatch(addTodo(newTodo));
-        } else {
-            dispatch(editTodo(editID, newTodo));
-            setEditID(-1);
-        }
-    
-        setModal(false); // Close the modal
-
-        // setModal(!modal);                          //for close the box.
-        setData({ title: '', todolist: '' });      //for clear the data
+        setModal(!modal);                          
+        setData({ title: '', todolist: '' });      
     }
+
+
 
     return (
         <>
@@ -69,13 +57,14 @@ const Nav = () => {
                                 <div className='col-6'>
                                     <button className='close-modal' onClick={toggleModal}>Cancel</button>
                                 </div>
-                                <div className='col-6'>
-                                    <button className='add-modal' onClick={hanldeAdd}>Add</button>
-                                </div>
                                 {/* <div className='col-6'>
-                                    {editID === -1 ? <button className='add-modal' onClick={hanldeAdd}>Add</button> :
-                                        <button className='add-modal' onClick={()=>hanldeEdit()}>Edit</button> }
+                                    <button className='add-modal' onClick={hanldeAdd}>Add</button>
                                 </div> */}
+                                <div className='col-6'>
+                                    {editID === -1 ? <button className='add-modal' onClick={hanldeAdd}>Add</button> :
+                                        <button className='add-modal'onClick={()=>hanldeEdit()}>Edit</button> 
+                                    }
+                                </div>
 
                                 <div className='col-12'>
                                     <div className='title-box'>

@@ -4,8 +4,8 @@ import './Section.css';
 import TodoBox from './TodoBox';
 import { connect } from 'react-redux';
 
-const Section = ({todos}) => {
-    console.log(todos)
+const Section = ({todos, setEditID}) => {
+    console.log(todos);
 
     return (
         <>
@@ -30,10 +30,11 @@ const Section = ({todos}) => {
                                 {
                                     todos.map((data, index) => 
                                         <div className='col-6 col-lm-12' key={index}>
+
                                             <TodoBox todobody={data.todolist} 
-                                            todotitle={data.title} 
-                                            
-                                            
+                                            todotitle={data.title} editID={data.id}
+                                            setEditID={setEditID}
+                                            id={data.id}
                                             />
                                             
                                         </div>

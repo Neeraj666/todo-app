@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './Section.css';
 
-function TodoBox({ todobody, todotitle, editID, setEditID, id }) {          
+function TodoBox({ todobody, todotitle, setEditID, id }) {          
     const[mod, setMod]=useState(false);
 
     const toggleMod=()=>{
