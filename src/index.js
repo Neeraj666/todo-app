@@ -1,5 +1,5 @@
 import React from "react-dom/client";
-import Main from "./Main";
+import Main from './Main';
 
 import reducer from "./Reducer/Reducer";
 import { createStore } from "redux";

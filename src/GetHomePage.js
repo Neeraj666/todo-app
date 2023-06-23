@@ -13,7 +13,7 @@ const GetHomePage=()=>{
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio quod fuga veniam quos officia voluptatibus quia rerum sequi nam! Eaque.
                     </p>
                     <Link to='/App' className={Style.Get_Start}>Get started</Link>
-                </div> 
+                </div>
             </div>
         </>
     );
