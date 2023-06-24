@@ -2,13 +2,21 @@ import '../App.css';
 import './Section.css';
 import { Fragment, useEffect, useState } from 'react';
 import TodoBox from './TodoBox';
+import { toggleHideCompleted } from '../Action';
 
-const Section = ({ todos, editID, setEditID, setTodos, handleDelete }) => {
+import { useDispatch, useSelector } from 'react-redux';
+
+const Section = ({ todos ,editID, setEditID, setTodos, handleDelete }) => {
     // console.log(todos, 'todos');
     const [hideCompleted, setHideCompleted] = useState(false);
 
+    // const todo = useSelector((state) => state.todos);
+//   const hideCompleted = useSelector((state) => state.todos);
+  const dispatch = useDispatch();
+
     const handleCheckboxChange = () => {
-        setHideCompleted(prevCompleted => !prevCompleted);
+        // setHideCompleted(prevCompleted => !prevCompleted);
+        dispatch(toggleHideCompleted());
     };
 
     // console.log(hideCompleted,'hide----------------------');
@@ -37,7 +45,7 @@ const Section = ({ todos, editID, setEditID, setTodos, handleDelete }) => {
                                 {
                                     todos.map((data, index) => (
                                         <Fragment key={index}>
-                                            {hideCompleted && !data.completed ? <></> :
+                                            {!hideCompleted && !data.completed ? <></> :
 
                                                 <div className='col-6 col-lm-12' >
                                                     <TodoBox
@@ -51,7 +59,7 @@ const Section = ({ todos, editID, setEditID, setTodos, handleDelete }) => {
                                                         setTodos={setTodos}
                                                         handleDelete={handleDelete}
                                                         hideCompleted={hideCompleted}
-                                                        setHideCompleted={setHideCompleted}
+                                                        // setHideCompleted={setHideCompleted}
                                                     />
                                                 </div>
 

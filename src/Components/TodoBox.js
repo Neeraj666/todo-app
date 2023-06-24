@@ -20,17 +20,17 @@ function TodoBox({ todobody, currentKey, todotitle, editID, setEditID, id,todos,
 
     const handleCheckboxChange = () => {
         setCompleted((prevCompleted) => !prevCompleted);
-        setTodos((prevTodos) => {
-          return prevTodos.map((todo, index) => {
-            if (index === id) {
-              return {
-                ...todo,
-                completed: !todo.completed,
-              };
-            }
-            return todo;
-          });
-        });
+        // setTodos((prevTodos) => {
+        //   return prevTodos.map((todo, index) => {
+        //     if (index === id) {
+        //       return {
+        //         ...todo,
+        //         completed: !todo.completed,
+        //       };
+        //     }
+        //     return todo;
+        //   });
+        // });
       };
     
 

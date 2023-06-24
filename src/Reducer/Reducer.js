@@ -1,7 +1,11 @@
 // export const ADD_TODO = "ADD_TODO";
-import { ADD_TODO, DELETE_TODO, EDIT_TODO } from "../Action";
+import { ADD_TODO, DELETE_TODO, EDIT_TODO,TOGGLE_HIDE_COMPLETED } from "../Action";
 
-const initialState =[];
+// const initialState =[];
+const initialState = {
+  todos: [],
+  hideCompleted: false,
+};
 
 const reducer = (state = initialState, action) => {
 
@@ -19,6 +23,9 @@ const reducer = (state = initialState, action) => {
               };
             }
           });
+
+          case TOGGLE_HIDE_COMPLETED:
+          return { ...state, hideCompleted: !state.hideCompleted };
 
           default: return state;
         }
