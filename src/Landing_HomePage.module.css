@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+.wrap { height: 100vh; display: flex; align-items: center; justify-self: center; }
+.wrap h1{font-size: 8rem; color: #494949; font-family: 'Ubuntu', sans-serif; font-weight: 600; position: relative;}
+.wrap h1::before{ content:""; position: absolute; bottom: 50px; left: 0px; height: 12px; width: 0; background-color: #494949;; animation: flowLine 2s linear infinite;}
+
+@keyframes flowLine {
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 102%;
+    }
+    
+}
+
+.section{ /* border: 1px solid red; */ text-align: center; padding: 10rem 0; display: flex; justify-content: center;}
+.section .container{ margin-top: 2rem;/*  border: 1px solid black; */ width: 32rem;}
+.section .h1{font-size: 6.5rem;}
+
+.section .t{color: rgb(157, 157, 255);}
+.section .to{color: rgb(249, 144, 144);}
+.section .d{color: rgb(152, 255, 152);}
+.section .o{color: rgb(201, 147, 252);}
+
+.section .para{font-size: 1rem; margin-top: 1rem; margin-bottom: 3rem; color: #494949;}
+.section .Get_Start{ padding: 15px 45px; border-radius: 10px; background-color: #494949; color: #fff;}
+
+@media screen and (max-width:460px){
+    .section{ padding: 8rem 0;}
+}

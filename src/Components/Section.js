@@ -2,9 +2,24 @@ import '../App.css';
 import './Section.css';
 import { Fragment, useEffect, useState } from 'react';
 import TodoBox from './TodoBox';
+import { toggleHideCompleted } from '../Action';
 
-const Section = ({todos, editID, setEditID}) => {
-    console.log(todos)
+import { useDispatch, useSelector } from 'react-redux';
+
+const Section = ({ todos ,editID, setEditID, setTodos, handleDelete }) => {
+    // console.log(todos, 'todos');
+    const [hideCompleted, setHideCompleted] = useState(false);
+
+    // const todo = useSelector((state) => state.todos);
+//   const hideCompleted = useSelector((state) => state.todos);
+  const dispatch = useDispatch();
+
+    const handleCheckboxChange = () => {
+        // setHideCompleted(prevCompleted => !prevCompleted);
+        dispatch(toggleHideCompleted());
+    };
+
+    // console.log(hideCompleted,'hide----------------------');
 
     return (
         <>
@@ -12,34 +27,46 @@ const Section = ({todos, editID, setEditID}) => {
                 <div className='container'>
                     <div className='row'>
 
-                        <div className='col-3'>
+                        <div className='col-3 col-lm-12'>
                             <ul className='ul'>
-                                <li><span className='circle'></span><a href="">work</a></li>
-                                <li><span className='circle1'></span><a href="">study</a></li>
-                                <li><span className='circle2'></span><a href="">entertainment</a></li>
-                                <li><span className='circle3'></span><a href="">family</a></li>
+                                <li><span className='circle com1'></span><a href="">work</a></li>
+                                <li><span className='circle1 com2'></span><a href="">study</a></li>
+                                <li><span className='circle2 com3'></span><a href="">entertainment</a></li>
+                                <li><span className='circle3 com4'></span><a href="">family</a></li>
                             </ul>
                             <div className='hide'>
-                                <input type='checkbox' value='' /><p>Hide the done task</p>
+                                <input type='checkbox' value='' checked={hideCompleted} onChange={handleCheckboxChange} /><p>Show the done task</p>
                             </div>
                         </div>
 
-                        <div className='col-9'>
+                        <div className='col-9 col-lm-12'>
                             <div className='row'>
 
                                 {
-                                    todos.map((data, index) => <Fragment key={index}>
-                                        <div className='col-6'>
-                                            <TodoBox todobody={data.todolist} todotitle={data.title} editID={editID} setEditID={setEditID} id={index}/>
-                                        </div>
+                                    todos.map((data, index) => (
+                                        <Fragment key={index}>
+                                            {!hideCompleted && !data.completed ? <></> :
 
-                                    </Fragment>)
+                                                <div className='col-6 col-lm-12' >
+                                                    <TodoBox
+                                                        currentKey={index}
+                                                        todobody={data.todolist}s
+                                                        todotitle={data.title}
+                                                        editID={editID}
+                                                        setEditID={setEditID}
+                                                        id={index}
+                                                        todos={todos}
+                                                        setTodos={setTodos}
+                                                        handleDelete={handleDelete}
+                                                        hideCompleted={hideCompleted}
+                                                        // setHideCompleted={setHideCompleted}
+                                                    />
+                                                </div>
+
+                                            }
+                                        </Fragment>
+                                    ))
                                 }
-
-                                {/*                                 
-                                <div className='col-6'>
-                                <TodoBox todobody={"Test"} todotitle={"asdfsa iosaohfasj jb sdf hamf sga sajhdfg askgdfkj"}/>
-                                </div> */}
 
                             </div>
                         </div>
